@@ -4,4 +4,4 @@ A financial platform for the Internet public to provide financial services and p
 ## System architecture
 
 Fatalism's arch diagram is:
-![ARCH](arch.png)
+![ARCH](docs/images/arch.png)
