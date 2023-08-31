@@ -35,7 +35,4 @@ public class IDCardUtil {
 		return map;
 	}
 
-	public static void main(String[] args) {
-		System.out.println(getInfo("658182198109222913"));
-	}
 }

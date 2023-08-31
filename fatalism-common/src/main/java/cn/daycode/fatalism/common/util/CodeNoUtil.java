@@ -11,7 +11,4 @@ public class CodeNoUtil {
         return prefixCode.getCode() + UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();
     }
 
-    public static void main(String[] args) {
-        System.out.println(CodeNoUtil.getNo(CodePrefixCode.CODE_CONSUMER_PREFIX));
-    }
 }
