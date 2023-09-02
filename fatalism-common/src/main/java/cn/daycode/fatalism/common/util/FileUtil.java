@@ -1,4 +1,4 @@
-package cn.itcast.wanxinp2p.common.util;
+package cn.daycode.fatalism.common.util;
 
 import java.io.*;
 
