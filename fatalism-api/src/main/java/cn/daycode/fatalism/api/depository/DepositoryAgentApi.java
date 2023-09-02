@@ -1,7 +1,6 @@
 package cn.daycode.fatalism.api.depository;
 
 import cn.daycode.fatalism.api.consumer.model.ConsumerRequest;
-import cn.daycode.fatalism.api.depository.model.LoanDetailRequest;
 import cn.daycode.fatalism.api.depository.model.LoanRequest;
 import cn.daycode.fatalism.api.depository.model.RepaymentRequest;
 import cn.daycode.fatalism.api.depository.model.UserAutoPreTransactionRequest;
