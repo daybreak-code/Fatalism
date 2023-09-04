@@ -4,7 +4,7 @@ package cn.daycode.fatalism.account;
  * Hello world!
  *
  */
-public class App 
+public class AccountApp
 {
     public static void main( String[] args )
     {
