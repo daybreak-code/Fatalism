@@ -1,6 +1,8 @@
 package cn.daycode.fatalism.consumer.common;
 
-public enum ConsumerErrorCode {
+import cn.daycode.fatalism.common.domain.ErrorCode;
+
+public enum ConsumerErrorCode implements ErrorCode {
 
     E_140101(140101, "don't existed user information"),
     E_140102(140102, "request failed"),

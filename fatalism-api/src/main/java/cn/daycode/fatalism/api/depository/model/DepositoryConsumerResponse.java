@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-public class DepositoryConsumerResponse {
+public class DepositoryConsumerResponse extends DepositoryBaseResponse{
 
     @ApiModelProperty("bank code")
     private String bankCode;

@@ -23,6 +23,9 @@ public class BankCard implements Serializable {
     @TableField("BANK_NAME")
     private String bankName;
 
+    @TableField("BANK_CODE")
+    private String bankCode;
+
     @TableField("CARD_NUMBER")
     private String cardNumber;
 
