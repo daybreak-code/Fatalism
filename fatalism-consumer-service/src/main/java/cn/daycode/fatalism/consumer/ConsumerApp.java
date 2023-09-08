@@ -4,7 +4,7 @@ package cn.daycode.fatalism.consumer;
  * Hello world!
  *
  */
-public class App 
+public class ConsumerApp
 {
     public static void main( String[] args )
     {
