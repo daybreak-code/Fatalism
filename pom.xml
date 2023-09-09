@@ -28,6 +28,7 @@
     <module>fatalism-consumer-service</module>
     <module>fatalism-repayment-service</module>
     <module>fatalism-transaction-service</module>
+      <module>fatalism-depository</module>
   </modules>
 
   <dependencyManagement>
