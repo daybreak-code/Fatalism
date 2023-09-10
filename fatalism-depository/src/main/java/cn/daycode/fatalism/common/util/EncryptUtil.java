@@ -27,7 +27,7 @@ public class EncryptUtil {
         try {
             encoded = Base64.getEncoder().encodeToString(str.getBytes("utf-8"));
         } catch (UnsupportedEncodingException e) {
-            log.warn("不支持的编码格式",e);
+            log.warn("don't supported code format",e);
         }
         return encoded;
 
@@ -39,7 +39,7 @@ public class EncryptUtil {
         try {
             decoded = new String(bytes,"utf-8");
         }catch(UnsupportedEncodingException e){
-            log.warn("不支持的编码格式",e);
+            log.warn("don't supported code format",e);
         }
         return decoded;
     }
@@ -60,7 +60,7 @@ public class EncryptUtil {
 		try {
 			decoded = URLDecoder.decode(url, "utf-8");
 		} catch (UnsupportedEncodingException e) {
-			log.warn("URLDecode失败", e);
+			log.warn("URLDecode failure", e);
 		}
 		return decoded;
 	}

@@ -73,9 +73,9 @@ public class BankCardNumberUtil {
 	
 	enum BankCardTypeEnum {
 	
-		DEBIT("借记卡/储蓄卡"),
+		DEBIT("debit card"),
 	
-		CREDIT("信用卡/贷记卡");
+		CREDIT("card");
 
 		private final String name;
 

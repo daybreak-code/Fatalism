@@ -15,13 +15,7 @@ public class RSAUtil {
 	final static Base64.Decoder decoder = Base64.getDecoder();
 	final static Base64.Encoder encoder = Base64.getEncoder();
 
-    /**
-     * RSA签名
-     * @param content 待签名数据
-     * @param privateKey 商户私钥
-     * @param input_charset 编码格式
-     * @return 签名值
-     */
+
     public static String sign(String content, String privateKey, String input_charset)
     {
         try
@@ -48,14 +42,7 @@ public class RSAUtil {
         return null;
     }
 
-    /**
-     * RSA验签名检查
-     * @param content 待签名数据
-     * @param sign 签名值
-     * @param public_key 公钥
-     * @param input_charset 编码格式
-     * @return 布尔值
-     */
+
     public static boolean verify(String content, String sign, String public_key, String input_charset)
     {
         try
@@ -83,13 +70,7 @@ public class RSAUtil {
         return false;
     }
 
-    /**
-     * 解密
-     * @param content 密文
-     * @param private_key 商户私钥
-     * @param input_charset 编码格式
-     * @return 解密后的字符串
-     */
+
     public static String decrypt(String content, String private_key, String input_charset) throws Exception {
         PrivateKey prikey = getPrivateKey(private_key);
 
@@ -98,7 +79,6 @@ public class RSAUtil {
 
         InputStream ins = new ByteArrayInputStream(decoder.decode(content));
         ByteArrayOutputStream writer = new ByteArrayOutputStream();
-        //rsa解密的字节大小最多是128，将需要解密的内容，按128位拆开解密
         byte[] buf = new byte[128];
         int bufl;
 
@@ -121,11 +101,6 @@ public class RSAUtil {
     }
 
 
-    /**
-     * 得到私钥
-     * @param key 密钥字符串（经过base64编码）
-     * @throws Exception
-     */
     public static PrivateKey getPrivateKey(String key) throws Exception {
 
         byte[] keyBytes;
@@ -142,7 +117,7 @@ public class RSAUtil {
     }
 
 
-    //生成密钥对
+
     public static KeyPair getKeyPair() throws Exception {
         KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
         keyGen.initialize(512); //可以理解为：加密后的密文长度，实际原文要小些 越大 加密解密越慢
@@ -161,7 +136,7 @@ public class RSAUtil {
 
 
     public static void main(String [] args) throws Exception{
-        //生成公私钥对
+
        /* KeyPair keyPair = RSAUtil.getKeyPair();
         PublicKey publicKey =  keyPair.getPublic();
         PrivateKey privateKey = keyPair.getPrivate();
@@ -176,24 +151,24 @@ public class RSAUtil {
        String content = "加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890加密原文1234567890";
 
 
-       System.out.println("-----------------p2p向存管发送数据--------------------- ");
+       System.out.println("-----------------p2p send data to depository--------------------- ");
        String signature = RSAUtil.sign(content, p2p_privateKey, "utf-8");
-        System.out.println("生成签名,原文为：" + content);
+        System.out.println("generated：" + content);
        if(RSAUtil.verify(content,signature,p2p_publicKey,"utf-8")){
-               System.out.println("验证签名成功：" + signature);
+               System.out.println("verify signature failure：" + signature);
        }else{
-           System.out.println("验证签名失败！");
+           System.out.println("verify signature failure！");
        }
 
 
 
-        System.out.println("-----------------存管向p2p返回数据--------------------- ");
+        System.out.println("-----------------p2p send data to depository--------------------- ");
         String signature1 = RSAUtil.sign(content, depository_privateKey, "utf-8");
-        System.out.println("生成签名,原文为：" + content);
+        System.out.println("generated：" + content);
         if(RSAUtil.verify(content,signature1,depository_publicKey,"utf-8")){
-            System.out.println("验证签名成功：" + signature1);
+            System.out.println("verify signature success：" + signature1);
         }else{
-            System.out.println("验证签名失败！");
+            System.out.println("verify signature failure！");
         }
 
 

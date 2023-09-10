@@ -1,13 +1,6 @@
 package cn.daycode.fatalism.common.util;
 
-/**
- * <P>
- * 通用工具类
- * </p>
- *
- * @author zhupeiyuan
- * @since 2019-06-25
- */
+
 public class CommonUtil {
 
 	public static String hiddenMobile(String mobile) {
