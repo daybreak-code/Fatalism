@@ -6,28 +6,41 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.math.BigDecimal;
 
+
 public interface BalanceDetailsService extends IService<BalanceDetails> {
 
-    BalanceDetailsDTO getP2PBalanceDetails(String userNo);
 
-    UserAutoPreTransactionResponse verifyEnough(String userNo, BigDecimal freezeAmount, UserAutoPreTransactionResponse response);
+	BalanceDetailsDTO getP2PBalanceDetails(String userNo);
 
-    Boolean freezeBalance(UserAutoPreTransactionRequest preTransactionRequest);
 
-    Boolean increaseBalance(BalanceDetails balanceDetails);
+	UserAutoPreTransactionResponse verifyEnough(String userNo, BigDecimal freezeAmount, UserAutoPreTransactionResponse response);
 
-    Boolean decreaseBalance(BalanceDetails balanceDetails);
 
-    Boolean recharge(RechargeRequest rechargeRequest);
+	Boolean freezeBalance(UserAutoPreTransactionRequest preTransactionRequest);
 
-    Boolean withDraw(WithdrawRequest withdrawRequest);
 
-    BalanceDetails getByUserNo(String userNo);
+	Boolean increaseBalance(BalanceDetails balanceDetails, BigDecimal amount);
 
-    Boolean addForPersonalRegister(BalanceDetails balanceDetails);
 
-    UserAutoPreTransactionResponse autoPreTransactionForRepayment(UserAutoPreTransactionResponse preTransactionResponse);
+	Boolean decreaseBalance(BalanceDetails balanceDetails, BigDecimal amount);
 
-    ConfirmRepaymentResponse confirmRepayment(String reqData);
+
+	Boolean recharge(RechargeRequest rechargeRequest);
+
+
+	Boolean withDraw(WithdrawRequest withDrawRequest);
+
+
+
+	BalanceDetails getByUserNo(String userNo);
+
+
+	Boolean addForPersonalRegister(BalanceDetails balanceDetails);
+
+
+	UserAutoPreTransactionResponse autoPreTransactionForRepayment(UserAutoPreTransactionRequest preTransactionRequest);
+
+
+	ConfirmRepaymentResponse confirmRepayment(String reqData);
 
 }

@@ -9,21 +9,28 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.math.BigDecimal;
 
+
 public interface BankCardService extends IService<BankCard> {
 
-    String createBankCard(BankCardRequest bankCardRequest);
 
-    BigDecimal getBalance(String cardNumber);
+	String createBankCard(BankCardRequest bankCardRequest);
 
-    PageVO<BankCardDTO> queryBankCards(BankCardQuery bankCardQuery, Integer pageNo, Integer pageSize,
-                                       String sortBy, String order);
 
-    Boolean verify(BankCard bankCard);
+	BigDecimal getBalance(String cardNumber);
 
-    Boolean increaseBalance(String cardNumber, BigDecimal amount);
 
-    Boolean decreaseBalance(String cardNumber, BigDecimal amount);
+	PageVO<BankCardDTO> queryBankCards(BankCardQuery bankCardQuery, Integer pageNo, Integer pageSize,
+									   String sortBy, String order);
 
-    BankCard getByCardNumber(String cardNumber);
+
+	Boolean verify(BankCard bankCard);
+
+
+	Boolean increaseBalance(String cardNumber, BigDecimal amount);
+
+
+	Boolean decreaseBalance(String cardNumber, BigDecimal amount);
+
+	BankCard getByCardNumber(String cardNumber);
 
 }
