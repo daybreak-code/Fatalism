@@ -62,7 +62,8 @@ public class RechargeDetailsServiceImpl extends ServiceImpl<RechargeDetailsMappe
 			updateById(rechargeDetails);
 
 			response.setSuccess();
-			requestDetailsService.modifyGatewayByRequestNo(response);
+			// @todo
+			//requestDetailsService.modifyGatewayByRequestNo(response);
 
 			//producer.recharge(rechargeRequest.getAppCode(), response);
 		} catch (Exception e) {
@@ -73,7 +74,8 @@ public class RechargeDetailsServiceImpl extends ServiceImpl<RechargeDetailsMappe
 
 			response.setFailure();
 			response.setRespMsg(e.getMessage());
-			requestDetailsService.modifyGatewayByRequestNo(response);
+
+//			requestDetailsService.modifyGatewayByRequestNo(response);
 
 			//producer.recharge(rechargeRequest.getAppCode(), response);
 			throw new BusinessException(response.getRequestNo(), RemoteReturnCode.EXCEPTION, e.getMessage(), e);
