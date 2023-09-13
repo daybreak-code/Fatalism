@@ -29,6 +29,7 @@
     <module>fatalism-repayment-service</module>
     <module>fatalism-transaction-service</module>
       <module>fatalism-depository</module>
+      <module>fatalism-uaa-service</module>
   </modules>
 
   <dependencyManagement>
