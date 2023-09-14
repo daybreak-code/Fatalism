@@ -9,13 +9,11 @@ public class UnifiedUserDetails implements UserDetails {
 
     private static final long serialVersionUID = 3957586021470480642L;
 
-
     protected List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
 
     private String username;
 
     private String password;
-
 
     private String mobile;
 
