@@ -31,7 +31,6 @@ public class GlobalExceptionHandler {
             } else {
                 return new RestResponse<Nullable>(be.getErrorCode().getCode(), be.getErrorCode().getDesc());
             }
-
         } else if (e instanceof NoHandlerFoundException) {
             return new RestResponse<Nullable>(404, "Not found resource");
         } else if (e instanceof HttpRequestMethodNotSupportedException) {
