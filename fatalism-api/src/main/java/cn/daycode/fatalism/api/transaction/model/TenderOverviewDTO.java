@@ -21,7 +21,7 @@ public class TenderOverviewDTO {
     private Long consumerId;
 
     @ApiModelProperty("consumerUsername")
-    private Long consumerUsername;
+    private String consumerUsername;
 
     @ApiModelProperty("tender freeze amount")
     private BigDecimal amount;
