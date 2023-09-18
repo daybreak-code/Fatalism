@@ -30,6 +30,7 @@
     <module>fatalism-transaction-service</module>
       <module>fatalism-depository</module>
       <module>fatalism-uaa-service</module>
+      <module>fatalism-depository-agent-service</module>
   </modules>
 
   <dependencyManagement>
