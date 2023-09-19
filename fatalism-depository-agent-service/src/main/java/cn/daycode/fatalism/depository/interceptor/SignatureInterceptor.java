@@ -25,9 +25,7 @@ public class SignatureInterceptor implements Interceptor{
     @Autowired
     private ConfigService configService;
 
-    /**
-     * 签名的编码
-     */
+
     private final String INPUT_CHARSET = "UTF-8";
 
     @Override
