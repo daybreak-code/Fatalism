@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ElasticsearchConfig {
 
-    @Value("${wanxinp2p.es.host}")
+    @Value("${fatalism.es.host}")
     private String es_host;
 
     @Bean
