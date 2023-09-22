@@ -8,6 +8,6 @@ public class ContentSearchApp
 {
     public static void main( String[] args )
     {
-        SpringApplication.run(ContentSearchApp.class);
+        SpringApplication.run(ContentSearchApp.class, args);
     }
 }
