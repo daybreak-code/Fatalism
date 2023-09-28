@@ -1,9 +1,9 @@
 package cn.daycode.fatalism;
 
-import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DepositoryAppTest
 {

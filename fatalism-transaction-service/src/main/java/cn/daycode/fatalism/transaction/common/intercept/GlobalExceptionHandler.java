@@ -8,7 +8,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.lang.Nullable;
-import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -35,8 +34,8 @@ public class GlobalExceptionHandler {
             return new RestResponse<Nullable>(404, "Not found resource");
         } else if (e instanceof HttpRequestMethodNotSupportedException) {
             return new RestResponse<Nullable>(405, "method not support");
-        } else if (e instanceof AccessDeniedException) {
-            return new RestResponse<Nullable>(304, "don't have access");
+//        } else if (e instanceof AccessDeniedException) {
+//            return new RestResponse<Nullable>(304, "don't have access");
         } else if (e instanceof HttpMediaTypeNotSupportedException) {
             return new RestResponse<Nullable>(415, "don't support media type");
         }
