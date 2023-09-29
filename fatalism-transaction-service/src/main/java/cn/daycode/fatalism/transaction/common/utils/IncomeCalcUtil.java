@@ -6,6 +6,7 @@ public class IncomeCalcUtil {
 
     public static BigDecimal getIncomeTotalInterest(BigDecimal invest, BigDecimal yearRate, int month) {
         double monthRate = yearRate.doubleValue() / 12;
+
         BigDecimal totalInterest = new BigDecimal(0);
         for (int i = 1; i < month + 1; i++) {
             BigDecimal multiply = invest.multiply(new BigDecimal(monthRate));
