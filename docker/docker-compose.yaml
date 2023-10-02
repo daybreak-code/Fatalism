@@ -1,0 +1,81 @@
+version: "3.7"
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:5.7.18
+    environment:
+      - "MYSQL_ROOT_PASSWORD=123456"
+      - "TZ=Asia/Shanghai"
+    restart: always
+    command: --max-connections=1000 --server-id=1 --log-bin=mysql-bin
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 1s
+      retries: 10
+    volumes:
+      #- ./mysql/mydir:/mydir
+      - ./mysql/data:/var/lib/mysql
+      #- ./mysql/conf/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf # 本地存放配置文件
+      - ./mysql/source:/docker-entrypoint-initdb.d  # 全备备份sql文件放置到此目录下
+    network_mode: "host"
+
+  apollo-configservice:
+    container_name: apollo-configservice
+    image: apolloconfig/apollo-configservice:2.1.0
+    restart: always
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/ApolloConfigDB?characterEncoding=utf8&useSSL=false&serverTimezone=GMT
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=123456
+    volumes:
+      - /tmp/logs:/opt/logs
+    healthcheck:
+      test: ["CMD", "curl" ,"localhost:8080/health"]
+      interval: 5s
+      timeout: 1s
+      retries: 10
+    depends_on:
+      - mysql
+    network_mode: "host"
+
+  apollo-adminservice:
+    container_name: apollo-adminservice
+    image: apolloconfig/apollo-adminservice:2.1.0
+    restart: always
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/ApolloConfigDB?characterEncoding=utf8&useSSL=false&serverTimezone=GMT
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=123456
+    volumes:
+      - /tmp/logs:/opt/logs
+    healthcheck:
+      test: ["CMD", "curl" ,"localhost:8090/health"]
+      interval: 5s
+      timeout: 1s
+      retries: 10
+    depends_on:
+      - apollo-configservice
+    network_mode: "host"
+
+  apollo-portal:
+    container_name: apollo-portal
+    image: apolloconfig/apollo-portal:2.1.0
+    restart: always
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/ApolloPortalDB?characterEncoding=utf8&useSSL=false&serverTimezone=GMT
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=123456
+      - APOLLO_PORTAL_ENVS=pro    #注意这里，如果要修改不同环境名，则数据库也必须修改 ApolloPortalDB.ServerConfig 中 apollo.portal.envs 该行的信息，否则启动会发生报错
+      - PRO_META=http://localhost:8080 # 这里需要写环境名对应的 configservice 服务。
+    volumes:
+      - /tmp/logs:/opt/logs
+    healthcheck:
+      test: ["CMD", "curl" ,"localhost:8070/health"]
+      interval: 5s
+      timeout: 1s
+      retries: 10
+    depends_on:
+      - apollo-adminservice
+      - apollo-configservice
+    network_mode: "host"
