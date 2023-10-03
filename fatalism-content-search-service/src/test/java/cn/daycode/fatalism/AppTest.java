@@ -4,9 +4,7 @@ package cn.daycode.fatalism;
 //
 //import org.junit.Test;
 
-/**
- * Unit test for simple App.
- */
+
 public class AppTest 
 {
     /**
