@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2023-10-03T08:55:49Z"
+  labels:
+    appName: apollo
+    workloadKind: Deployment
+    workloadName: apollo-portal
+  name: apollo-portal
+  namespace: apollo
+spec:
+  clusterIP: 10.96.210.42
+  externalTrafficPolicy: Cluster
+  ports:
+    - name: "8070"
+      nodePort: 32110
+      port: 32115
+      protocol: TCP
+      targetPort: 8070
+  selector:
+    name: apollo-portal
+  sessionAffinity: None
+  type: NodePort
