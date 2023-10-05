@@ -57,7 +57,6 @@ services:
     depends_on:
       - apollo-configservice
     network_mode: "host"
-
   apollo-portal:
     container_name: apollo-portal
     image: apolloconfig/apollo-portal:2.1.0
