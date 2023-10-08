@@ -2,9 +2,9 @@ package cn.daycode.fatalism.account.entity;
 
 import java.io.Serializable;
 
-//import lombok.Data;
-//
-//@Data
+import lombok.Data;
+
+@Data
 public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
