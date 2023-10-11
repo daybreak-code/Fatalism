@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SERVICE_NAME=apollo-adminservice
+SERVICE_NAME=fatalism-account-service
 export APP_NAME=$SERVICE_NAME
 
 if [[ -z "$JAVA_HOME" && -d /usr/java/latest/ ]]; then
