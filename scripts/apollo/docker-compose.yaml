@@ -17,7 +17,7 @@ services:
       interval: 5s
       timeout: 1s
       retries: 10
-    network_mode: "host"
+    network_mode: "bridge"
 
   apollo-adminservice:
     container_name: apollo-adminservice
@@ -38,7 +38,7 @@ services:
       retries: 10
     depends_on:
       - apollo-configservice
-    network_mode: "host"
+    network_mode: "bridge"
 
   apollo-portal:
     container_name: apollo-portal
@@ -62,4 +62,4 @@ services:
     depends_on:
       - apollo-adminservice
       - apollo-configservice
-    network_mode: "host"
+    network_mode: "bridge"
