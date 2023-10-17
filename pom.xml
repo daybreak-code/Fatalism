@@ -15,7 +15,6 @@
   </parent>
 
   <properties>
-
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -33,6 +32,7 @@
     <module>fatalism-depository-agent-service</module>
     <module>fatalism-sms</module>
     <module>fatalism-content-search-service</module>
+      <module>fatalism-eureka</module>
   </modules>
 
   <dependencyManagement>

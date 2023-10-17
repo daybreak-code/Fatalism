@@ -12,11 +12,6 @@ services:
       - SPRING_DATASOURCE_PASSWORD=123456
     volumes:
       - /tmp/logs:/opt/logs
-    healthcheck:
-      test: ["CMD", "curl" ,"localhost:8080/health"]
-      interval: 5s
-      timeout: 1s
-      retries: 10
     network_mode: "bridge"
 
   apollo-adminservice:
@@ -31,11 +26,6 @@ services:
       - SPRING_DATASOURCE_PASSWORD=123456
     volumes:
       - /tmp/logs:/opt/logs
-    healthcheck:
-      test: ["CMD", "curl" ,"localhost:8090/health"]
-      interval: 5s
-      timeout: 1s
-      retries: 10
     depends_on:
       - apollo-configservice
     network_mode: "bridge"
@@ -50,15 +40,10 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/ApolloPortalDB?characterEncoding=utf8&useSSL=false&serverTimezone=GMT
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=123456
-      - APOLLO_PORTAL_ENVS=dev    #注意这里，如果要修改不同环境名，则数据库也必须修改 ApolloPortalDB.ServerConfig 中 apollo.portal.envs 该行的信息，否则启动会发生报错
-      - PRO_META=http://localhost:8080 # 这里需要写环境名对应的 configservice 服务。
+      - APOLLO_PORTAL_ENVS=dev
+      - PRO_META=http://localhost:8080
     volumes:
       - /tmp/logs:/opt/logs
-    healthcheck:
-      test: ["CMD", "curl" ,"localhost:8070/health"]
-      interval: 5s
-      timeout: 1s
-      retries: 10
     depends_on:
       - apollo-adminservice
       - apollo-configservice
