@@ -33,6 +33,7 @@
     <module>fatalism-sms</module>
     <module>fatalism-content-search-service</module>
       <module>fatalism-eureka</module>
+      <module>fatalism-config-server</module>
   </modules>
 
   <dependencyManagement>
