@@ -9,7 +9,7 @@ import cn.daycode.fatalism.common.domain.RestResponse;
 import cn.daycode.fatalism.common.util.PasswordUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.dromara.hmily.annotation.Hmily;
+//import org.dromara.hmily.annotation.Hmily;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -39,7 +39,7 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
     }
 
     @Override
-    @Hmily//(confirmMethod = "confirmRegister",cancelMethod = "cancelRegister")
+    //@Hmily//(confirmMethod = "confirmRegister",cancelMethod = "cancelRegister")
     public AccountDTO register(AccountRegisterDTO accountRegisterDTO) {
         Account account = new Account();
         account.setUsername(accountRegisterDTO.getUsername());
