@@ -10,3 +10,8 @@ apollo:
 spring:
   application:
     name: account-service
+
+logging:
+  level:
+    root: info # 没有指定日志级别的包会跟随根记录器的设置
+    cn.daycode.fatalism.account: trace #com.example.demo为包名

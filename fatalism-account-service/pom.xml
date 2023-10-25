@@ -18,12 +18,50 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-logging</artifactId>
-        </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.7.5</version>
+      </dependency>
 
-<!--    <dependency>-->
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>1.7.5</version>
+      </dependency>
+
+      <dependency>
+        <groupId>cn.daycode.fatalism</groupId>
+        <artifactId>fatalism-common</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <scope>compile</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>cn.daycode.fatalism</groupId>
+        <artifactId>fatalism-api</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <scope>compile</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-logging</artifactId>
+      </dependency>
+
+
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>1.7.26</version>
+      </dependency>
+
+      <!--    <dependency>-->
 <!--      <groupId>org.dromara</groupId>-->
 <!--      <artifactId>hmily-springcloud</artifactId>-->
 <!--      <version>2.1.2</version>-->
@@ -47,42 +85,25 @@
       <artifactId>mybatis-plus-boot-starter</artifactId>
       <version>3.5.3.1</version>
     </dependency>
+
     <dependency>
       <groupId>com.baomidou</groupId>
       <artifactId>mybatis-plus-generator</artifactId>
       <version>3.5.3.1</version>
     </dependency>
+
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
     </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-      <exclusions>
-        <exclusion>
-          <groupId>ch.qos.logback</groupId>
-          <artifactId>logback-classic</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
+
+    <!-- test -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>cn.daycode.fatalism</groupId>
-      <artifactId>fatalism-common</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>cn.daycode.fatalism</groupId>
-      <artifactId>fatalism-api</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <scope>compile</scope>
-    </dependency>
+
   </dependencies>
 
   <build>
