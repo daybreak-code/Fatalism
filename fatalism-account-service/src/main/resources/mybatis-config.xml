@@ -31,4 +31,5 @@
     <mappers>
         <mapper resource="cn/daycode/fatalism/account/mapper/AccountMapper.xml"/>
     </mappers>
+
 </configuration>
