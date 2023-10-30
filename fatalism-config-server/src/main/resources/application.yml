@@ -2,3 +2,12 @@ logging:
   level:
     com.demo: debug
     org.springframework: warn
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/daybreak-code/Fatalism.git
+          username: 3358115621@qq.com
+          password: test
