@@ -1,71 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration debug="true">
-    <!--定义日志文件的存储地址 ，这个使用的是相对路径，即在日志文件存放在项目根路径logs文件夹下-->
-    <property name="LOG_HOME" value="log" />
-    <!-- 控制台输出 -->
+<configuration>
+
+    <springProperty scope="context" name="LOG_HOME" source="logging.path" defaultValue="/data/logs/springboot-logback-demo"/>
+
+    <springProperty scope="context" name="LOG_ROOT_LEVEL" source="logging.level.root" defaultValue="DEBUG"/>
+
+    <springProperty scope="context" name="STDOUT" source="log.stdout" defaultValue="STDOUT"/>
+
+    <property name="LOG_PREFIX" value="spring-boot-logback" />
+
+    <property name="LOG_CHARSET" value="UTF-8" />
+    <property name="LOG_DIR" value="${LOG_HOME}/%d{yyyyMMdd}" />
+
+    <property name="LOG_MSG" value="- | [%X{requestUUID}] | [%d{yyyyMMdd HH:mm:ss.SSS}] | [%level] | [${HOSTNAME}] | [%thread] | [%logger{36}] | --> %msg|%n "/>
+
+    <property name="MAX_FILE_SIZE" value="50MB" />
+
+    <property name="MAX_HISTORY" value="10"/>
+
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
-            <!--            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>-->
-            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%p] [%t] [%-40.40logger{39}] : %m%n</pattern>
-        </encoder>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>${LOG_MSG}</pattern>
+        </layout>
     </appender>
 
-    <!-- 按照每天生成日志文件 -->
-    <appender name="ALLACTIONAPPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_HOME}/alllogger.log</file>
+    <appender name="0" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    </appender>
+
+    <appender name="FILE_ALL" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_HOME}/all_${LOG_PREFIX}.log</File>
+
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!--日志文件输出的文件名-->
-            <FileNamePattern>${LOG_HOME}/alllogger.log.%d{yyyy-MM-dd}.%i</FileNamePattern>
-            <!--日志文件保留天数-->
-            <MaxHistory>30</MaxHistory>
+
+            <FileNamePattern>${LOG_DIR}/all_${LOG_PREFIX}%i.log</FileNamePattern>
+
+            <MaxHistory>${MAX_HISTORY}</MaxHistory>
+
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>250MB</maxFileSize>
+                <maxFileSize>${MAX_FILE_SIZE}</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+
+        </rollingPolicy>
+
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>${LOG_MSG}</pattern>
+        </layout>
+    </appender>
+
+    <appender name="FILE_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <OnMismatch>DENY</OnMismatch>
+            <OnMatch>ACCEPT</OnMatch>
+        </filter>
+        <File>${LOG_HOME}/err_${LOG_PREFIX}.log</File>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+
+            <FileNamePattern>${LOG_DIR}/err_${LOG_PREFIX}%i.log</FileNamePattern>
+
+            <MaxHistory>${MAX_HISTORY}</MaxHistory>
+
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${MAX_FILE_SIZE}</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
-            <!--            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>-->
-            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%p] [%t] [%-40.40logger{39}] : %m%n</pattern>
-            <charset>utf8</charset>
-        </encoder>
+
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>${LOG_MSG}</Pattern>
+        </layout>
     </appender>
 
-    <appender name="TASKACTIONAPPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_HOME}/taskaction.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!--日志文件输出的文件名-->
-            <FileNamePattern>${LOG_HOME}/taskaction.log.%d{yyyy-MM-dd}.%i</FileNamePattern>
-            <!--日志文件保留天数-->
-            <MaxHistory>30</MaxHistory>
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>250MB</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
-        </rollingPolicy>
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
-            <!--            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>-->
-            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%p] [%t] [%-40.40logger{39}] : %m%n</pattern>
-            <charset>utf8</charset>
-        </encoder>
-    </appender>
+    <logger name="org.springframework"     level="ERROR" />
+    <logger name="org.apache.commons"      level="ERROR" />
+    <logger name="org.apache.zookeeper"    level="ERROR"  />
+    <logger name="com.alibaba.dubbo.monitor" level="ERROR"/>
+    <logger name="com.alibaba.dubbo.remoting" level="ERROR" />
 
-    <logger name="com.example.demo" level="DEBUG" >
-    </logger>
-
-    <!-- 日志输出级别 ，一定要把上边定义的appender 写在下面否者会导致日志文件生成不了，或者为空的日志文件-->
-    <root level="INFO">
-        <appender-ref ref="STDOUT" />
-        <appender-ref ref="ALLACTIONAPPENDER" />
+    <root level="${LOG_ROOT_LEVEL}">
+        <appender-ref ref="${STDOUT}"/>
+        <appender-ref ref="FILE_ALL"/>
+        <appender-ref ref="FILE_ERROR"/>
     </root>
-
-    <!--业务操作日志-->
-    <logger name="TASKACTION" level="info" additivity="false">
-        <appender-ref ref="TASKACTIONAPPENDER"/>
-    </logger>
-
-    <logger name="ALLACTION" level="info" additivity="false">
-        <appender-ref ref="ALLACTIONAPPENDER"/>
-    </logger>
 
 </configuration>
