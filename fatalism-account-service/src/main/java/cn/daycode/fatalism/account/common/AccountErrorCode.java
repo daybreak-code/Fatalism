@@ -3,11 +3,11 @@ package cn.daycode.fatalism.account.common;
 import cn.daycode.fatalism.common.domain.ErrorCode;
 
 public enum AccountErrorCode implements ErrorCode {
-    E_130101(130101, "username has exist"),
-    E_130104(130104,"user not been registered"),
-    E_130105(130105, "username or password failure"),
-    E_140141(140141, "register failure"),
-    E_140151(140151, "got SMS verification code failure"),
+    E_130101(130101, "Username has exist"),
+    E_130104(130104,"User Not been registered"),
+    E_130105(130105, "Username or Password Failure"),
+    E_140141(140141, "Register failure"),
+    E_140151(140151, "Got SMS verification Code failure"),
     E_140152(140152,"verification code mistake")
     ;
 
