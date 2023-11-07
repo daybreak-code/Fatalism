@@ -35,7 +35,7 @@ public class ConsumerController implements ConsumerAPI {
     private ConsumerService consumerService;
 
     @ApiOperation("test")
-    @GetMapping(params = "/hello")
+    @GetMapping(path = "/hello")
     public String hello(){
         return "hello";
     }
