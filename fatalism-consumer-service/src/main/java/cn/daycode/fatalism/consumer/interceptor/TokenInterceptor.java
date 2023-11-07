@@ -11,7 +11,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 public class TokenInterceptor implements HandlerInterceptor {
 
-    @Override  //前置拦截器
+    @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) {
         String jsonToken = httpServletRequest.getParameter("jsonToken");
         if (StringUtils.isNotBlank(jsonToken)) {

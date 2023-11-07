@@ -8,6 +8,6 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/daybreak-code/Fatalism.git
+          uri: https://github.com/daybreak-code/config-server.git
           username: 3358115621@qq.com
           password: test
