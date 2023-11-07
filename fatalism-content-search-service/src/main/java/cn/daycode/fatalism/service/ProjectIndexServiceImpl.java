@@ -51,10 +51,10 @@ public class ProjectIndexServiceImpl implements ProjectIndexService{
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
         searchSourceBuilder.query(queryBuilder);
         if (StringUtils.isNotBlank(sortBy) && StringUtils.isNotBlank(order)) {
-            if (order.toLowerCase().equals("asc")) {
+            if ("asc".equals(order.toLowerCase())) {
                 searchSourceBuilder.sort(sortBy, SortOrder.ASC);
             }
-            if (order.toLowerCase().equals("desc")) {
+            if ("desc".equals(order.toLowerCase())) {
                 searchSourceBuilder.sort(sortBy, SortOrder.DESC);
             }
         } else {

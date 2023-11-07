@@ -10,13 +10,14 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ElasticsearchConfig {
 
-    @Value("${fatalism.es.host}")
+    @Value("${fatalism.es.host:127.0.0.1:8089}")
     private String es_host;
 
     @Bean
     public RestHighLevelClient restHighLevelClient(){
-        String ip=es_host.split(":")[0];
-        int port=Integer.parseInt(es_host.split(":")[1]);
+        String[] es = es_host.split(":");
+        String ip= es[0];
+        int port=Integer.parseInt(es[1]);
         HttpHost httpHost=new HttpHost(ip,port);
         return new RestHighLevelClient(RestClient.builder(httpHost));
     }
