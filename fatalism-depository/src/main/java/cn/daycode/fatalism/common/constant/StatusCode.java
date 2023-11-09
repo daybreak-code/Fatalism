@@ -3,13 +3,9 @@ package cn.daycode.fatalism.common.constant;
 public enum StatusCode {
 
     STATUS_FAIL(2, "Published/Sync Publish Failure"),
-    /**
-     * 已发/同布
-     */
+
     STATUS_IN(1, "Published/Sync Publish"),
-    /**
-     * 未发/同布
-     */
+
     STATUS_OUT(0,"Not Publish/Sync Publish");
 
     private Integer code;
