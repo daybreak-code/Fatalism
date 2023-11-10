@@ -1,13 +1,13 @@
 package cn.daycode.fatalism.service;
 
-import cn.daycode.fatalism.common.constant.ProjectStatusCode;
-import cn.daycode.fatalism.common.util.EncryptUtil;
 import cn.daycode.fatalism.domain.CreateProjectRequest;
 import cn.daycode.fatalism.domain.CreateProjectResponse;
 import cn.daycode.fatalism.domain.ModifyProjectRequest;
 import cn.daycode.fatalism.domain.ModifyProjectResponse;
-import cn.daycode.fatalism.entity.Project;
+import cn.daycode.fatalism.entity.balance.Project;
 import cn.daycode.fatalism.mapper.ProjectMapper;
+import cn.daycode.fatalism.common.constant.ProjectStatusCode;
+import cn.daycode.fatalism.common.util.EncryptUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

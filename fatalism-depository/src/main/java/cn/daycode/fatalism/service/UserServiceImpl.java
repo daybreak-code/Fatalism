@@ -1,14 +1,18 @@
 package cn.daycode.fatalism.service;
 
-import cn.daycode.fatalism.common.domain.BusinessException;
 import cn.daycode.fatalism.common.domain.LocalReturnCode;
 import cn.daycode.fatalism.common.domain.RemoteReturnCode;
 import cn.daycode.fatalism.domain.PersonalRegisterRequest;
 import cn.daycode.fatalism.domain.PersonalRegisterResponse;
 import cn.daycode.fatalism.entity.*;
+import cn.daycode.fatalism.entity.balance.BalanceDetails;
+import cn.daycode.fatalism.entity.balance.BankCard;
+import cn.daycode.fatalism.entity.balance.BankUser;
+import cn.daycode.fatalism.entity.balance.DepositoryBankCard;
 import cn.daycode.fatalism.mapper.DepositoryBankCardMapper;
 import cn.daycode.fatalism.mapper.UserMapper;
 import cn.daycode.fatalism.message.GatewayMessageProducer;
+import cn.daycode.fatalism.common.domain.BusinessException;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

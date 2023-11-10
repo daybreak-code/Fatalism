@@ -1,7 +1,7 @@
 package cn.daycode.fatalism.service;
 
-import cn.daycode.fatalism.common.util.EncryptUtil;
 import cn.daycode.fatalism.interceptor.OKHttpSignatureInterceptor;
+import cn.daycode.fatalism.common.util.EncryptUtil;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

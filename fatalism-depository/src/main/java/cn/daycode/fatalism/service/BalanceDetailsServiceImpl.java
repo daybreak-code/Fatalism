@@ -1,13 +1,13 @@
 package cn.daycode.fatalism.service;
 
+import cn.daycode.fatalism.common.domain.RemoteReturnCode;
+import cn.daycode.fatalism.domain.*;
+import cn.daycode.fatalism.entity.balance.BalanceDetails;
+import cn.daycode.fatalism.entity.balance.Project;
+import cn.daycode.fatalism.mapper.BalanceDetailsMapper;
 import cn.daycode.fatalism.common.constant.BalanceChangeCode;
 import cn.daycode.fatalism.common.domain.BusinessException;
-import cn.daycode.fatalism.common.domain.RemoteReturnCode;
 import cn.daycode.fatalism.common.util.EncryptUtil;
-import cn.daycode.fatalism.domain.*;
-import cn.daycode.fatalism.entity.BalanceDetails;
-import cn.daycode.fatalism.entity.Project;
-import cn.daycode.fatalism.mapper.BalanceDetailsMapper;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -43,7 +43,7 @@ public class BalanceDetailsServiceImpl extends ServiceImpl<BalanceDetailsMapper,
 
 	@Override
 	public UserAutoPreTransactionResponse verifyEnough(String userNo, BigDecimal needAmount,
-			UserAutoPreTransactionResponse response) {
+                                                       UserAutoPreTransactionResponse response) {
 		if (!isEnough(userNo, needAmount)) {
 			response.setResp(RemoteReturnCode.BALANCE_NOT_ENOUGH);
 			return response;

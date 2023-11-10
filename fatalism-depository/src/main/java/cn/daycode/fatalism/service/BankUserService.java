@@ -1,6 +1,6 @@
 package cn.daycode.fatalism.service;
 
-import cn.daycode.fatalism.entity.BankUser;
+import cn.daycode.fatalism.entity.balance.BankUser;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 

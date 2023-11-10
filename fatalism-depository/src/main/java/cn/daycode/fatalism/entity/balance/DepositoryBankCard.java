@@ -1,4 +1,4 @@
-package cn.daycode.fatalism.entity;
+package cn.daycode.fatalism.entity.balance;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -9,8 +9,8 @@ import lombok.Data;
 import java.io.Serializable;
 
 @Data
-@TableName("bank_card")
-public class BankCard implements Serializable {
+@TableName("depository_bank_card")
+public class DepositoryBankCard implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -29,6 +29,13 @@ public class BankCard implements Serializable {
     @TableField("CARD_NUMBER")
     private String cardNumber;
 
-    @TableField("PASSWORD")
-    private String password;
+    @TableField("MOBILE")
+    private String mobile;
+
+    @TableField("APP_CODE")
+    private String appCode;
+
+    @TableField("REQUEST_NO")
+    private String requestNo;
+
 }

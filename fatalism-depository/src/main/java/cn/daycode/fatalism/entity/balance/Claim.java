@@ -1,4 +1,4 @@
-package cn.daycode.fatalism.entity;
+package cn.daycode.fatalism.entity.balance;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;

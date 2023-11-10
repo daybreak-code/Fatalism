@@ -1,14 +1,14 @@
 package cn.daycode.fatalism.service;
 
 import cn.daycode.fatalism.common.constant.StatusCode;
-import cn.daycode.fatalism.common.domain.BusinessException;
 import cn.daycode.fatalism.common.domain.RemoteReturnCode;
 import cn.daycode.fatalism.domain.WithdrawRequest;
 import cn.daycode.fatalism.domain.WithdrawResponse;
-import cn.daycode.fatalism.entity.DepositoryBankCard;
+import cn.daycode.fatalism.entity.balance.DepositoryBankCard;
 import cn.daycode.fatalism.entity.WithdrawDetails;
 import cn.daycode.fatalism.mapper.WithdrawDetailsMapper;
 import cn.daycode.fatalism.message.GatewayMessageProducer;
+import cn.daycode.fatalism.common.domain.BusinessException;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;

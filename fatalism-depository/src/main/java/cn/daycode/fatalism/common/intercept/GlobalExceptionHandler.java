@@ -1,9 +1,9 @@
 package cn.daycode.fatalism.common.intercept;
 
-import cn.daycode.fatalism.common.domain.BusinessException;
 import cn.daycode.fatalism.common.domain.RemoteReturnCode;
 import cn.daycode.fatalism.domain.BaseResponse;
 import cn.daycode.fatalism.domain.DepositoryResponse;
+import cn.daycode.fatalism.common.domain.BusinessException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;

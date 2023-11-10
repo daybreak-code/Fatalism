@@ -1,18 +1,18 @@
 package cn.daycode.fatalism.service;
 
-import cn.daycode.fatalism.common.constant.BalanceChangeCode;
-import cn.daycode.fatalism.common.domain.BusinessException;
 import cn.daycode.fatalism.common.domain.LocalReturnCode;
-import cn.daycode.fatalism.common.domain.PageVO;
 import cn.daycode.fatalism.common.domain.RemoteReturnCode;
 import cn.daycode.fatalism.domain.BankCardDTO;
 import cn.daycode.fatalism.domain.BankCardQuery;
 import cn.daycode.fatalism.domain.BankCardRequest;
-import cn.daycode.fatalism.entity.BankCard;
-import cn.daycode.fatalism.entity.BankCardDetails;
-import cn.daycode.fatalism.entity.BankUser;
+import cn.daycode.fatalism.entity.balance.BankCard;
+import cn.daycode.fatalism.entity.balance.BankCardDetails;
+import cn.daycode.fatalism.entity.balance.BankUser;
 import cn.daycode.fatalism.mapper.BankCardDetailsMapper;
 import cn.daycode.fatalism.mapper.BankCardMapper;
+import cn.daycode.fatalism.common.constant.BalanceChangeCode;
+import cn.daycode.fatalism.common.domain.BusinessException;
+import cn.daycode.fatalism.common.domain.PageVO;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -88,7 +88,7 @@ public class BankCardServiceImpl extends ServiceImpl<BankCardMapper, BankCard> i
 
 	@Override
 	public PageVO<BankCardDTO> queryBankCards(BankCardQuery bankCardQuery, Integer pageNo, Integer pageSize,
-											  String sortBy, String order) {
+                                              String sortBy, String order) {
 		QueryWrapper<BankCard> queryWrapper = new QueryWrapper<>();
 
 		if (StringUtils.isNotBlank(bankCardQuery.getCardNumber())) {

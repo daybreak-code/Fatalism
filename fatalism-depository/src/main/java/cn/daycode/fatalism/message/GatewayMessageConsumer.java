@@ -1,7 +1,6 @@
 package cn.daycode.fatalism.message;
 
 import com.ctrip.framework.apollo.ConfigService;
-import io.micrometer.core.ipc.http.OkHttpSender;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

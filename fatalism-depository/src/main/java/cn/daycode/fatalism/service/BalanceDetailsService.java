@@ -1,7 +1,7 @@
 package cn.daycode.fatalism.service;
 
 import cn.daycode.fatalism.domain.*;
-import cn.daycode.fatalism.entity.BalanceDetails;
+import cn.daycode.fatalism.entity.balance.BalanceDetails;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.math.BigDecimal;

@@ -1,12 +1,12 @@
 package cn.daycode.fatalism.controller;
 
-import cn.daycode.fatalism.common.util.CommonUtil;
-import cn.daycode.fatalism.common.util.EncryptUtil;
 import cn.daycode.fatalism.domain.PersonalRegisterRequest;
 import cn.daycode.fatalism.domain.RechargeRequest;
 import cn.daycode.fatalism.domain.WithdrawRequest;
-import cn.daycode.fatalism.entity.BankCard;
-import cn.daycode.fatalism.entity.DepositoryBankCard;
+import cn.daycode.fatalism.entity.balance.BankCard;
+import cn.daycode.fatalism.entity.balance.DepositoryBankCard;
+import cn.daycode.fatalism.common.util.CommonUtil;
+import cn.daycode.fatalism.common.util.EncryptUtil;
 import cn.daycode.fatalism.service.BankCardService;
 import cn.daycode.fatalism.service.UserService;
 import com.alibaba.fastjson.JSON;

@@ -1,6 +1,6 @@
 package cn.daycode.fatalism.mapper;
 
-import cn.daycode.fatalism.entity.BankCardDetails;
+import cn.daycode.fatalism.entity.balance.BankCardDetails;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
 

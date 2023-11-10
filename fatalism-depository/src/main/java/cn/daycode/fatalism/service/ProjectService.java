@@ -2,7 +2,7 @@ package cn.daycode.fatalism.service;
 
 import cn.daycode.fatalism.domain.CreateProjectResponse;
 import cn.daycode.fatalism.domain.ModifyProjectResponse;
-import cn.daycode.fatalism.entity.Project;
+import cn.daycode.fatalism.entity.balance.Project;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 
