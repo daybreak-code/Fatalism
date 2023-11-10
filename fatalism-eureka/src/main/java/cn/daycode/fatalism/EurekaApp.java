@@ -3,16 +3,15 @@ package cn.daycode.fatalism;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+//import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
-@EnableEurekaServer
+//@EnableEurekaServer
 @SpringBootApplication
-public class EurekaApp
-{
-    public static void main( String[] args )
-    {
+public class EurekaApp {
+    public static void main(String[] args) {
         SpringApplication.run(EurekaApp.class);
     }
+}
 
     /*
     *
@@ -26,8 +25,7 @@ public class EurekaApp
 -e "EUREKA_INSTANCE_INSTANCEID=127.0.0.1:8080" \
 -v /tmp/logs:/opt/logs  \
 --name apollo-configservice apolloconfig/apollo-configservice
-————————————————
-版权声明：本文为CSDN博主「summer_west_fish」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/summer_fish/article/details/126097988
-    * */
+
 }
+
+     */
