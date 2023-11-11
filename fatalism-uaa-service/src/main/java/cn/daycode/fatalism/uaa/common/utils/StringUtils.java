@@ -138,12 +138,6 @@ public abstract class StringUtils {
     }
 
 
-    /**
-     * XML字符转义包括(<,>,',&,")五个字符.
-     *
-     * @param value 所需转义的字符串
-     * @return 转义后的字符串 @
-     */
     public static String escapeXml(String value) {
         StringBuilder writer = new StringBuilder();
         char[] chars = value.trim().toCharArray();

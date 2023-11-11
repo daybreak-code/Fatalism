@@ -1,9 +1,6 @@
 package cn.daycode.fatalism;
 
-/**
- * Hello world!
- *
- */
+
 public class App 
 {
     public static void main( String[] args )
