@@ -8,6 +8,7 @@ import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.common.message.MessageConst;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class GatewayMessageProducer {
 
-    @Resource
+    @Autowired
     private RocketMQTemplate rocketMQTemplate;
 
     public void personalRegister(String appCode, PersonalRegisterResponse response) {
