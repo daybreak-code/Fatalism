@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 @EnableApolloConfig
 public class ConfigService {
+
     @ApolloConfig
     private Config config;
 
