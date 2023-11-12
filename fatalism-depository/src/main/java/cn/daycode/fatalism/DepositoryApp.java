@@ -14,7 +14,6 @@ public class DepositoryApp
 {
     public static void main( String[] args )
     {
-        Class<BalanceDetails> balanceDetailsClass = BalanceDetails.class;
         SpringApplication.run(DepositoryApp.class);
     }
 
