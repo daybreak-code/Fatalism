@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DepositoryApp
+public class DepositoryAgentApp
 {
     public static void main( String[] args )
     {
-        SpringApplication.run(DepositoryApp.class);
+        SpringApplication.run(DepositoryAgentApp.class);
     }
 }
