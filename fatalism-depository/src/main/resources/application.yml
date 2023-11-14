@@ -6,6 +6,11 @@ spring:
     password: 123456
     url: jdbc:mysql://192.168.85.111:3306/sakila?serverTimezone=UTC&useUnicode=true@characterEncoding=utf-8
     driver-class-name: com.mysql.jdbc.Driver
+  cloud:
+    config:
+      label: master #指定从仓库的那个分支拉取配置
+      name: testServerConfig  #指定拉取配置文件的名称
+      profile: pro #指定拉取配置文件的环境
 
 rocketmq:
   name-server: 127.0.0.1:9876
@@ -13,3 +18,9 @@ rocketmq:
     group: simple-producer-group
     send-message-timeout: 3000
     retry-times-when-send-failed: 2
+
+
+eureka:  #注册中心
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/

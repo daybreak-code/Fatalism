@@ -37,7 +37,7 @@ public class OKHttpSignatureInterceptor implements Interceptor {
             final String platformNo = getParam(url, "platformNo");
             String base = url.substring(0, url.indexOf("?") + 1);
 
-            final String sign = RSAUtil.sign(jsonString, configService.getDepositoryPrivateKey(), INPUT_CHARSET);
+            final String sign = RSAUtil.sign(jsonString, "configService.getDepositoryPrivateKey()", INPUT_CHARSET);
             url = base + "serviceName=" + URLEncoder.encode(serviceName, INPUT_CHARSET) + "&platformNo=" + URLEncoder
                     .encode(platformNo, INPUT_CHARSET) + "&reqData=" + URLEncoder.encode(reqData, INPUT_CHARSET)
                     + "&signature=" + URLEncoder.encode(sign, INPUT_CHARSET);
