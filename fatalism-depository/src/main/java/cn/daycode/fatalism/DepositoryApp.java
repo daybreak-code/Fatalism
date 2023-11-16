@@ -15,9 +15,4 @@ public class DepositoryApp
         SpringApplication.run(DepositoryApp.class);
     }
 
-    @Bean
-    RocketMQTemplate getMQ(){
-        return new RocketMQTemplate();
-    }
-
 }
