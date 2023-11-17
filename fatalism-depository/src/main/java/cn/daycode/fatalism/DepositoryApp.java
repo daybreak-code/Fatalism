@@ -1,5 +1,6 @@
 package cn.daycode.fatalism;
 
+import io.github.classgraph.ClassGraph;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

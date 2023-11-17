@@ -7,6 +7,7 @@ import cn.daycode.fatalism.api.transaction.model.ModifyProjectStatusDTO;
 import cn.daycode.fatalism.api.transaction.model.ProjectDTO;
 import cn.daycode.fatalism.depository.entity.DepositoryRecord;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.stereotype.Service;
 
 public interface DepositoryRecordService extends IService<DepositoryRecord> {
 

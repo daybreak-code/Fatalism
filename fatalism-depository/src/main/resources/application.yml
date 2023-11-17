@@ -11,6 +11,8 @@ spring:
       label: master #指定从仓库的那个分支拉取配置
       name: testServerConfig  #指定拉取配置文件的名称
       profile: pro #指定拉取配置文件的环境
+      import-check:
+        enabled: false
 
 rocketmq:
   name-server: 127.0.0.1:9876
