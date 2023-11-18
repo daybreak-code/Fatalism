@@ -1,4 +1,4 @@
-package cn.daycode.fatalism.gateway.common.util;
+package cn.daycode.fatalism.gateway.util;
 
 import cn.daycode.fatalism.common.domain.RestResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
