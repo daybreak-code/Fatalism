@@ -4,7 +4,6 @@ import cn.daycode.fatalism.domain.PersonalRegisterResponse;
 import cn.daycode.fatalism.domain.RechargeResponse;
 import cn.daycode.fatalism.domain.WithdrawResponse;
 import com.alibaba.fastjson.JSON;
-import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.common.message.MessageConst;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
