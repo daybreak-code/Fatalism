@@ -1,0 +1,14 @@
+p2p:
+  zookeeper:
+    connString: test
+  job:
+    namespace: test
+    count: 1
+    cron: test
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.85.111:3306/sakila?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.jdbc.cj.Driver
