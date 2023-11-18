@@ -58,12 +58,12 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
         return NoOpPasswordEncoder.getInstance();
     }
 
-    @Bean
-    public ClientDetailsService clientDetailsService(DataSource dataSource) {
-        ClientDetailsService clientDetailsService = new CustomJdbcClientDetailsService(dataSource);
-        ((CustomJdbcClientDetailsService) clientDetailsService).setPasswordEncoder(passwordEncoder());
-        return clientDetailsService;
-    }
+//    @Bean
+//    public ClientDetailsService clientDetailsService(DataSource dataSource) {
+//        ClientDetailsService clientDetailsService = new CustomJdbcClientDetailsService(dataSource);
+//        ((CustomJdbcClientDetailsService) clientDetailsService).setPasswordEncoder(passwordEncoder());
+//        return clientDetailsService;
+//    }
 
     @Bean
     public AuthorizationServerTokenServices tokenService() {
@@ -82,7 +82,7 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
     }
 
 
-    @Bean
+    @Bean(name = "jdbcAuthorizationCodeServices")
     public AuthorizationCodeServices authorizationCodeServices(DataSource dataSource) {
         return new JdbcAuthorizationCodeServices(dataSource);
     }
