@@ -145,7 +145,7 @@ public class DepositoryRecordServiceImpl extends ServiceImpl<DepositoryRecordMap
 
     @Override
     public DepositoryResponseDTO<DepositoryBaseResponse> confirmRepayment(RepaymentRequest repaymentRequest) {
-        DepositoryRecord depositoryRecord = new DepositoryRecord(repaymentRequest.getRequestNo(), PreprocessBusinessTypeCode.REPAYMENT.getCode(),"Repayment",repaymentRequest.getId());
+        DepositoryRecord depositoryRecord = null; //new DepositoryRecord(repaymentRequest.getRequestNo(), PreprocessBusinessTypeCode.REPAYMENT.getCode(),"Repayment",repaymentRequest.getId());
 
         DepositoryResponseDTO<DepositoryBaseResponse> responseDTO =
                 handleIdempotent(depositoryRecord);
