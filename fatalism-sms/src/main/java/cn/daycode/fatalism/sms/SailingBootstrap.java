@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SailingBootstrap {
 
     public static void main(String[] args) {
-//        org.springframework.util.comparator.InvertibleComparator
         SpringApplication.run(SailingBootstrap.class, args);
     }
 
