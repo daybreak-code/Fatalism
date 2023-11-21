@@ -1,5 +1,5 @@
 server:
-  port: 56085
+  port: 8095
   servlet:
     context-path: /sailing
 
@@ -39,7 +39,7 @@ swagger:
   enable: true
 
 logging:
-  config: classpath:log4j2.xml
+  config: classpath:logback.xml
     
 
 

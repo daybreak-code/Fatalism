@@ -4,6 +4,8 @@ package cn.daycode.fatalism.sms.common.intercept;
 import cn.daycode.fatalism.sms.common.domain.BusinessException;
 import cn.daycode.fatalism.sms.common.domain.CommonErrorCode;
 import cn.daycode.fatalism.sms.common.domain.RestResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.lang.Nullable;
@@ -14,8 +16,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 
 @ControllerAdvice
