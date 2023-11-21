@@ -1,4 +1,4 @@
 package cn.daycode.fatalism.api.transaction;
 
-public interface TrnasactionApi {
+public interface TransactionApi {
 }
