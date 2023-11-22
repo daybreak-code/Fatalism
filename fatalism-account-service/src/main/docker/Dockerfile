@@ -1,16 +1,17 @@
 FROM alpine:3.15.5
 
-ARG VERSION
+ARG VERSION="1.0-SNAPSHOT"
 ENV VERSION $VERSION
+RUN mkdir "/fatalism-account-service/"
 
-COPY fatalism-account-service-${VERSION}-github.zip /fatalism-account-service/fatalism-account-service-${VERSION}-github.zip
+COPY fatalism-account-service-${VERSION}.zip /fatalism-account-service/fatalism-account-service-${VERSION}.zip
 
-RUN unzip /fatalism-account-service/fatalism-account-service-${VERSION}-github.zip -d /fatalism-account-service \
-    && rm -rf /fatalism-account-service/fatalism-account-service-${VERSION}-github.zip \
+RUN unzip /fatalism-account-service/fatalism-account-service-${VERSION}.zip -d /fatalism-account-service \
+    && rm -rf /fatalism-account-service/fatalism-account-service-${VERSION}.zip \
     && chmod +x /fatalism-account-service/scripts/startup.sh
 
-FROM openjdk:8-jre-slim
-LABEL maintainer="g632104866@gmail.com;finchcn@gmail.com;ameizi<sxyx2008@163.com>"
+FROM openjdk:17
+LABEL maintainer="3358115621@qq.com"
 
 ENV APOLLO_RUN_MODE "Docker"
 ENV SERVER_PORT 8090
