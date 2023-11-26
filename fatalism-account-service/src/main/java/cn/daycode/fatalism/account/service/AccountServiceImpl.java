@@ -1,15 +1,18 @@
 package cn.daycode.fatalism.account.service;
 
+import cn.daycode.fatalism.account.common.AccountErrorCode;
 import cn.daycode.fatalism.account.entity.Account;
 import cn.daycode.fatalism.account.mapper.AccountMapper;
 import cn.daycode.fatalism.api.account.model.AccountDTO;
 import cn.daycode.fatalism.api.account.model.AccountLoginDTO;
 import cn.daycode.fatalism.api.account.model.AccountRegisterDTO;
+import cn.daycode.fatalism.common.domain.BusinessException;
 import cn.daycode.fatalism.common.domain.RestResponse;
 import cn.daycode.fatalism.common.util.PasswordUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 //import org.dromara.hmily.annotation.Hmily;
+import org.dromara.hmily.annotation.Hmily;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -39,7 +42,7 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
     }
 
     @Override
-    //@Hmily//(confirmMethod = "confirmRegister",cancelMethod = "cancelRegister")
+    @Hmily//(confirmMethod = "confirmRegister",cancelMethod = "cancelRegister")
     public AccountDTO register(AccountRegisterDTO accountRegisterDTO) {
         Account account = new Account();
         account.setUsername(accountRegisterDTO.getUsername());
@@ -60,14 +63,26 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
     public AccountDTO login(AccountLoginDTO accountLoginDTO) {
         Account account = null;
         if (accountLoginDTO.getDomain().equalsIgnoreCase("c")){
-
+            account = getAccountByMobile(accountLoginDTO.getMobile());
+        } else {
+            account = getAccountByUsername(accountLoginDTO.getUsername());
         }
-        return null;
+        if (null == account){
+            throw new BusinessException(AccountErrorCode.E_130104);
+        }
+        AccountDTO accountDTO = convertAccountEntityToDTO(account);
+        if (smsEnable){
+            return accountDTO;
+        }
+        if (PasswordUtil.verify(accountLoginDTO.getPassword(), account.getPassword())){
+            return accountDTO;
+        }
+        throw new BusinessException(AccountErrorCode.E_130105);
     }
 
-//    private Account getAccountByMobile(String mobile){
-//        return getOne(new QueryWrapper<Account>())
-//    }
+    private Account getAccountByMobile(String mobile){
+        return getOne(new QueryWrapper<Account>().lambda().eq(Account::getMobile,mobile));
+    }
 
     private Account getAccountByUsername(String username){
         return getOne(new QueryWrapper<Account>().lambda().eq(Account::getUsername, username));

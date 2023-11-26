@@ -35,9 +35,9 @@ public class GlobalExceptionHandler {
         }else if(e instanceof NoHandlerFoundException){
             return new RestResponse<Nullable>(404, "Can't found resource");
         }else if(e instanceof HttpRequestMethodNotSupportedException){
-            return new RestResponse<Nullable>(405, "method not supported");
+            return new RestResponse<Nullable>(405, "Method not supported");
         }else if(e instanceof HttpMediaTypeNotSupportedException){
-            return new RestResponse<Nullable>(415, "don't support media type");
+            return new RestResponse<Nullable>(415, "Don't support media type");
         }
 
         LOGGER.error("【system exception】" + e.getMessage());

@@ -15,15 +15,16 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Api(value = "AccountController")
+@RequestMapping("/account")
 public class AccountController implements AccountApi {
 
     @Autowired
     private AccountService accountService;
 
-    @ApiOperation("test")
-    @GetMapping("/hello")
-    public String hello(){
-        return "hello";
+    @ApiOperation("health")
+    @GetMapping("/health")
+    public String health(){
+        return "OK";
     }
 
     @Override
