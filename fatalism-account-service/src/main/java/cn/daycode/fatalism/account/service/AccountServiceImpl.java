@@ -10,15 +10,19 @@ import cn.daycode.fatalism.common.domain.BusinessException;
 import cn.daycode.fatalism.common.domain.RestResponse;
 import cn.daycode.fatalism.common.util.PasswordUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 //import org.dromara.hmily.annotation.Hmily;
+import lombok.extern.slf4j.Slf4j;
 import org.dromara.hmily.annotation.Hmily;
+import org.dromara.hmily.annotation.HmilyTCC;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> implements AccountService{
 
     @Autowired
@@ -42,7 +46,7 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
     }
 
     @Override
-    @Hmily//(confirmMethod = "confirmRegister",cancelMethod = "cancelRegister")
+    @HmilyTCC(confirmMethod = "confirmRegister", cancelMethod = "cancelRegister")
     public AccountDTO register(AccountRegisterDTO accountRegisterDTO) {
         Account account = new Account();
         account.setUsername(accountRegisterDTO.getUsername());
@@ -78,6 +82,16 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
             return accountDTO;
         }
         throw new BusinessException(AccountErrorCode.E_130105);
+    }
+
+    public void confirmRegister(AccountRegisterDTO registerDTO) {
+        log.info("execute confirmRegister");
+    }
+
+    public void cancelRegister(AccountRegisterDTO registerDTO) {
+        log.info("execute cancelRegister");
+        remove(Wrappers.<Account>lambdaQuery().eq(Account::getUsername,
+                registerDTO.getUsername()));
     }
 
     private Account getAccountByMobile(String mobile){
