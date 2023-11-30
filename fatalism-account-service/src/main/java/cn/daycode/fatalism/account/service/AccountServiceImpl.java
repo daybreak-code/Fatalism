@@ -12,11 +12,8 @@ import cn.daycode.fatalism.common.util.PasswordUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-//import org.dromara.hmily.annotation.Hmily;
-import lombok.extern.slf4j.Slf4j;
-import org.dromara.hmily.annotation.Hmily;
-import org.dromara.hmily.annotation.HmilyTCC;
-import org.springframework.beans.BeanUtils;
+import io.seata.rm.tcc.api.TwoPhaseBusinessAction;
+import lombok.extern.slf4j.Slf4j;import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -46,7 +43,7 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
     }
 
     @Override
-    @HmilyTCC(confirmMethod = "confirmRegister", cancelMethod = "cancelRegister")
+    @TwoPhaseBusinessAction(name = "accountLogin", commitMethod = "confirmRegister", rollbackMethod = "cancelRegister")
     public AccountDTO register(AccountRegisterDTO accountRegisterDTO) {
         Account account = new Account();
         account.setUsername(accountRegisterDTO.getUsername());
