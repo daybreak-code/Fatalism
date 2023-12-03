@@ -1,11 +1,9 @@
 package cn.daycode.fatalism.common.util;
 
-
 import org.apache.commons.codec.binary.Hex;
 
 import java.security.MessageDigest;
 import java.util.Random;
-
 
 
 public class PasswordUtil {

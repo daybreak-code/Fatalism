@@ -48,14 +48,14 @@
           <groupId>cn.daycode.fatalism</groupId>
           <artifactId>fatalism-common</artifactId>
           <version>1.0-SNAPSHOT</version>
-          <scope>compile</scope>
+          <scope>runtime</scope>
         </dependency>
 
         <dependency>
           <groupId>cn.daycode.fatalism</groupId>
           <artifactId>fatalism-api</artifactId>
           <version>1.0-SNAPSHOT</version>
-          <scope>compile</scope>
+          <scope>runtime</scope>
         </dependency>
 
         <dependency>

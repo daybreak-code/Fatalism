@@ -5,6 +5,6 @@ import cn.daycode.fatalism.common.domain.RestResponse;
 
 public interface RepaymentApi {
 
-    public RestResponse<String> startRepayment(ProjectWithTendersDTO projectWithTendersDTO);
+    RestResponse<String> startRepayment(ProjectWithTendersDTO projectWithTendersDTO);
 
 }

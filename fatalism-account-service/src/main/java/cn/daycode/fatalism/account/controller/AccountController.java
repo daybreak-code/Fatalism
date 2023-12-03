@@ -51,7 +51,7 @@ public class AccountController implements AccountApi {
     @ApiOperation("user register")
     @ApiImplicitParam(name = "accountRegisterDTO", value = "account register information", required = true,
             dataType = "AccountRegisterDTO", paramType = "body")
-    @PostMapping(value = "/l/accounts")
+    @PostMapping(value = "/register")
     public RestResponse<AccountDTO> register(@RequestBody AccountRegisterDTO accountRegisterDTO) {
         return  RestResponse.success(accountService.register(accountRegisterDTO));
     }
@@ -59,7 +59,7 @@ public class AccountController implements AccountApi {
     @ApiOperation("user login")
     @ApiImplicitParam(name = "accountLoginDTO", value = "login information", required = true,
             dataType = "AccountLoginDTO", paramType = "body")
-    @PostMapping(value = "/l/accounts/session")
+    @PostMapping(value = "/login")
     @Override
     public RestResponse<AccountDTO> login(@RequestBody AccountLoginDTO accountLoginDTO) {
         return RestResponse.success(accountService.login(accountLoginDTO));
