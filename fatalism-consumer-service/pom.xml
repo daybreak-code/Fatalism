@@ -22,14 +22,20 @@
       <groupId>cn.daycode.fatalism</groupId>
       <artifactId>fatalism-common</artifactId>
       <version>1.0-SNAPSHOT</version>
-      <scope>runtime</scope>
+      <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>cn.daycode.fatalism</groupId>
       <artifactId>fatalism-api</artifactId>
       <version>1.0-SNAPSHOT</version>
-      <scope>runtime</scope>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.14.0</version>
     </dependency>
 
     <dependency>
@@ -50,11 +56,6 @@
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-loadbalancer</artifactId>
       <version>4.0.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-mongodb</artifactId>
     </dependency>
 
     <dependency>
