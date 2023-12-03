@@ -24,6 +24,7 @@ import java.io.IOException;
 @RestController
 @Slf4j
 @Api(value = "ConsumerController", tags = "Consumer", description = "Consumer Service API")
+@RequestMapping("/consumer")
 public class ConsumerController implements ConsumerAPI {
 
     @Value("${depository.url}")
@@ -44,6 +45,7 @@ public class ConsumerController implements ConsumerAPI {
     @ApiOperation("user register")
     @ApiImplicitParam(name = "consumerRegisterDTO",value = "register information",
             required = true, dataType = "ConsumerRegisterDTO", paramType = "body")
+    @PostMapping("/register")
     public RestResponse register(ConsumerRegisterDTO consumerRegisterDTO) {
         consumerService.register(consumerRegisterDTO);
         return RestResponse.success();
@@ -52,7 +54,7 @@ public class ConsumerController implements ConsumerAPI {
 
     @ApiOperation("generate open account request data")
     @ApiImplicitParam(name = "consumerRequest", value = "open account information", required = true, dataType = "ConsumerRequest", paramType = "body")
-    @PostMapping("/my/consumers")
+    @PostMapping("")
     public RestResponse<GatewayRequest> createConsumer(@RequestBody ConsumerRequest consumerRequest) {
         consumerRequest.setMobile(SecurityUtil.getUser().getMobile());
         return consumerService.createConsumer(consumerRequest);
@@ -60,7 +62,7 @@ public class ConsumerController implements ConsumerAPI {
 
     @Override
     @ApiOperation("got login user information")
-    @GetMapping("/l/currConsumer/{mobile}")
+    @GetMapping("/{mobile}")
     public RestResponse<ConsumerDTO> getCurrConsumer(@PathVariable("mobile") String mobile) {
         ConsumerDTO consumerDTO = consumerService.getByMobile(mobile);
         return RestResponse.success(consumerDTO);
@@ -68,7 +70,7 @@ public class ConsumerController implements ConsumerAPI {
 
     @Override
     @ApiOperation("got login user information")
-    @GetMapping("/my/consumers")
+    @GetMapping("")
     public RestResponse<ConsumerDTO> getMyConsumer() {
         ConsumerDTO consumerDTO = consumerService.getByMobile(SecurityUtil.getUser().getMobile());
         return RestResponse.success(consumerDTO);
@@ -78,7 +80,7 @@ public class ConsumerController implements ConsumerAPI {
     @ApiOperation("got borrower user information")
     @ApiImplicitParam(name = "id", value = "用户标识", required = true,
             dataType = "Long", paramType = "path")
-    @GetMapping("/my/borrowers/{id}")
+    @GetMapping("/{id}")
     public RestResponse<BorrowerDTO> getBorrower(@PathVariable Long id) {
         return RestResponse.success(consumerService.getBorrower(id));
     }
@@ -97,13 +99,13 @@ public class ConsumerController implements ConsumerAPI {
     @ApiOperation("got borrower user balance")
     @ApiImplicitParam(name = "userNo", value = "user encode", required = true,
             dataType = "String")
-    @GetMapping("/l/balances/{userNo}")
+    @GetMapping("/balances/{userNo}")
     public RestResponse<BalanceDetailsDTO> getBalance(@PathVariable String userNo) {
         return getBalanceFromDepository(userNo);
     }
 
     @Override
-    @GetMapping("/my/balances")
+    @GetMapping("/balance")
     public RestResponse<BalanceDetailsDTO> getMyBalance() {
         ConsumerDTO consumerDTO=consumerService.getByMobile(SecurityUtil.getUser().getMobile());
         return getBalanceFromDepository(consumerDTO.getUserNo());
@@ -126,6 +128,7 @@ public class ConsumerController implements ConsumerAPI {
             log.warn("call depository system {} got balance failure ", url, e);
         } return RestResponse.validfail("got failure");
     }
+
 
     @ApiOperation("pass gateway resource been protected，start authentication interceptor test")
     @ApiImplicitParam(name = "jsonToken", value = "token", required = true,
