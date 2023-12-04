@@ -25,10 +25,11 @@ import java.util.Map;
 
 @Service
 public class ProjectIndexServiceImpl implements ProjectIndexService{
+
     @Autowired
     private RestHighLevelClient restHighLevelClient;
 
-    @Value("${wanxinp2p.es.index}")
+    @Value("${fatalism.es.index}")
     private String projectIndex;
 
     @Override
@@ -36,8 +37,8 @@ public class ProjectIndexServiceImpl implements ProjectIndexService{
 
         SearchRequest searchRequest = new SearchRequest(projectIndex);
 
-
         BoolQueryBuilder queryBuilder = QueryBuilders.boolQuery();
+
         if (StringUtils.isNotBlank(projectQueryParamsDTO.getName())) {
             queryBuilder.must(QueryBuilders.termQuery("name", projectQueryParamsDTO.getName()));
         }
@@ -88,7 +89,7 @@ public class ProjectIndexServiceImpl implements ProjectIndexService{
                 projectDTO.setPeriod(period);
                 projectDTO.setName(name);
                 projectDTO.setDescription(description);
-//                projectDTO.setAnnualRate(annualRate);
+                projectDTO.setAnnualRate(annualRate);
                 projectDTO.setId(Long.parseLong(sourceAsMap.get("id").toString()));
                 list.add(projectDTO);
             }

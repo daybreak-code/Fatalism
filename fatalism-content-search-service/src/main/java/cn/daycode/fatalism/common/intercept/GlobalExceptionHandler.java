@@ -6,8 +6,6 @@ import cn.daycode.fatalism.common.domain.RestResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.lang.Nullable;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -19,8 +17,6 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 @ControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
-
-    private final static Logger LOGGER = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody

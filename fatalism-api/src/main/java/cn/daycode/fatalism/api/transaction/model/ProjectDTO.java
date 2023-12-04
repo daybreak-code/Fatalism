@@ -35,6 +35,8 @@ public class ProjectDTO {
 
     private BigDecimal amount;
 
+    private BigDecimal annualRate;
+
     private String projectStatus;
 
     private LocalDateTime createDate;
