@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Api(value = "Bank DepositoryNotify", tags = "depository-agent")
 @RestController
+@RequestMapping("/notify")
 public class DepositoryNotifyController {
 
     @Autowired

@@ -13,6 +13,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,7 +37,7 @@ public class ServiceController {
             @ApiImplicitParam(name = "platformNo", required = true, dataType = "String", paramType = "query"),
             @ApiImplicitParam(name = "signature",  required = true, dataType = "String", paramType = "query"),
             @ApiImplicitParam(name = "reqData",  required = true, dataType = "String", paramType = "query"),})
-    @GetMapping(value = "/service", params = "serviceName=CREATE_PROJECT")
+    @PostMapping(value = "/service", params = "serviceName=CREATE_PROJECT")
     public DepositoryResponse<CreateProjectResponse> createProject(@RequestParam String serviceName,
                                                                    @RequestParam String platformNo, @RequestParam String signature, @RequestParam String reqData) {
         CreateProjectResponse projectResponse = projectService.createProject(reqData);
@@ -50,7 +51,7 @@ public class ServiceController {
             @ApiImplicitParam(name = "platformNo", required = true, dataType = "String", paramType = "query"),
             @ApiImplicitParam(name = "signature",  required = true, dataType = "String", paramType = "query"),
             @ApiImplicitParam(name = "reqData", required = true, dataType = "String", paramType = "query"),})
-    @GetMapping(value = "/service", params = "serviceName=MODIFY_PROJECT")
+    @GetMapping(value = "/modify", params = "serviceName=MODIFY_PROJECT")
     public DepositoryResponse<ModifyProjectResponse> modifyProject(@RequestParam String serviceName,
                                                                    @RequestParam String platformNo, @RequestParam String signature, @RequestParam String reqData) {
         ModifyProjectResponse projectResponse = projectService.modifyProject(reqData);
@@ -87,7 +88,7 @@ public class ServiceController {
             @ApiImplicitParam(name = "requestNo", required = true, dataType = "String", paramType = "query"),
             @ApiImplicitParam(name = "preRequestNo",  required = true, dataType = "String", paramType = "query"),
             @ApiImplicitParam(name = "amount", required = true, dataType = "String", paramType = "query")})
-    @GetMapping("/l/cancel-pre-freeze")
+    @PostMapping("/l/cancel-pre-freeze")
     public DepositoryResponse<String> cancelPreFreeze(@RequestParam String requestNo, @RequestParam String preRequestNo,
                                                       @RequestParam String amount) {
         return null;

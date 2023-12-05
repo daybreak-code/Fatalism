@@ -8,11 +8,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 public interface RechargeDetailsService extends IService<RechargeDetails> {
 
-	/**
-	 * 用户充值
-	 * @param rechargeRequest
-	 * @return
-	 */
+
 	RechargeResponse recharge(RechargeRequest rechargeRequest);
 
 }

@@ -12,12 +12,11 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Api(value = "depository agent service", tags = "depository-agent")
 @RestController
+@RequestMapping("/agent")
 public class DepositoryAgentController implements DepositoryAgentApi {
 
     @Autowired
@@ -27,7 +26,7 @@ public class DepositoryAgentController implements DepositoryAgentApi {
     @ApiOperation("createConsumer")
     @ApiImplicitParam(name = "consumerRequest", value = "open account information", required = true,
             dataType = "ConsumerRequest", paramType = "body")
-    @PostMapping("/l/consumers")
+    @PostMapping("/consumer")
     public RestResponse<GatewayRequest> createConsumer(@RequestBody ConsumerRequest  consumerRequest) {
         return RestResponse.success(depositoryRecordService.createConsumer(consumerRequest));
     }
@@ -36,7 +35,7 @@ public class DepositoryAgentController implements DepositoryAgentApi {
     @ApiOperation(value = "createProject")
     @ApiImplicitParam(name = "projectDTO", value = "createProject to depository system",
             required = true, dataType = "ProjectDTO", paramType = "body")
-    @PostMapping("/l/createProject")
+    @PostMapping("/project")
     public RestResponse<String> createProject(@RequestBody ProjectDTO projectDTO) {
         DepositoryResponseDTO<DepositoryBaseResponse> depositoryResponse =
                 depositoryRecordService.createProject(projectDTO);
@@ -52,7 +51,7 @@ public class DepositoryAgentController implements DepositoryAgentApi {
             value = "platform send msg to depository system", required = true,
             dataType = "UserAutoPreTransactionRequest", paramType =
             "body")
-    @PostMapping("/l/user-auto-pre-transaction")
+    @PostMapping("/user-auto-pre-transaction")
     public RestResponse<String> userAutoPreTransaction(@RequestBody UserAutoPreTransactionRequest userAutoPreTransactionRequest) {
         DepositoryResponseDTO<DepositoryBaseResponse> depositoryResponse = depositoryRecordService.userAutoPreTransaction(userAutoPreTransactionRequest);
         return getRestResponse(depositoryResponse);
@@ -62,7 +61,7 @@ public class DepositoryAgentController implements DepositoryAgentApi {
     @ApiOperation(value = "confirmLoan")
     @ApiImplicitParam(name = "loanRequest", value = "loanRequest", required =
             true, dataType = "LoanRequest", paramType = "body")
-    @PostMapping("l/confirm-loan")
+    @PostMapping("/confirm-loan")
     public RestResponse<String> confirmLoan(@RequestBody LoanRequest loanRequest) {
         DepositoryResponseDTO<DepositoryBaseResponse> depositoryResponse =depositoryRecordService.confirmLoan(loanRequest);
         return getRestResponse(depositoryResponse);
@@ -73,7 +72,7 @@ public class DepositoryAgentController implements DepositoryAgentApi {
     @ApiImplicitParam(name = "modifyProjectStatusDTO", value = "modifyProjectStatusDTO",
             required = true, dataType = "ModifyProjectStatusDTO",
             paramType = "body")
-    @PostMapping("l/modify-project-status")
+    @PutMapping("/project/status")
     public RestResponse<String> modifyProjectStatus(@RequestBody ModifyProjectStatusDTO modifyProjectStatusDTO) {
         DepositoryResponseDTO<DepositoryBaseResponse> depositoryResponseDTO=depositoryRecordService.modifyProjectStatus(modifyProjectStatusDTO);
         return getRestResponse(depositoryResponseDTO);
@@ -84,7 +83,7 @@ public class DepositoryAgentController implements DepositoryAgentApi {
     @ApiImplicitParam(name = "repaymentRequest", value = "Repayment information",
             required = true, dataType = "RepaymentRequest", paramType =
             "body")
-    @PostMapping("l/confirm-repayment")
+    @PostMapping("/confirm-repayment")
     public RestResponse<String> confirmRepayment(@RequestBody RepaymentRequest repaymentRequest) {
         DepositoryResponseDTO<DepositoryBaseResponse> depositoryResponseDTO=depositoryRecordService.confirmRepayment(repaymentRequest);
         return getRestResponse(depositoryResponseDTO);
