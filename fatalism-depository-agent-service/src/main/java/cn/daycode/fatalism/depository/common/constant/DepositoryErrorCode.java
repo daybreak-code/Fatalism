@@ -24,7 +24,7 @@ public enum DepositoryErrorCode implements ErrorCode {
         return desc;
     }
 
-    private DepositoryErrorCode(int code, String desc) {
+    DepositoryErrorCode(int code, String desc) {
         this.code = code;
         this.desc = desc;
     }

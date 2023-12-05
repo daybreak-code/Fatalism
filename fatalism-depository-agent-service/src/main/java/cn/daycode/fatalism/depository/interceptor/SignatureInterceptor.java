@@ -22,11 +22,11 @@ public class SignatureInterceptor implements Interceptor{
 
     private final String METHOD_GET = "GET";
 
+    private final String INPUT_CHARSET = "UTF-8";
+
     @Autowired
     private ConfigService configService;
 
-
-    private final String INPUT_CHARSET = "UTF-8";
 
     @Override
     public Response intercept(Interceptor.Chain chain) throws IOException {
