@@ -6,9 +6,11 @@ import com.alibaba.fastjson.JSONObject;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
+@Component
 public class RepaymentProducer {
 
     @Resource

@@ -11,8 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-@RocketMQMessageListener(topic = "TP_CONFIG_REPAYMENT"
-, consumerGroup = "CID_CONFIRM_REPAYMENT")
+@RocketMQMessageListener(topic = "TP_CONFIG_REPAYMENT", consumerGroup = "CID_CONFIRM_REPAYMENT")
 public class ConfirmRepaymentConsumer implements RocketMQListener<String> {
 
     @Autowired

@@ -4,10 +4,12 @@ import cn.daycode.fatalism.repayment.service.RepaymentService;
 import com.dangdang.ddframe.job.api.ShardingContext;
 import com.dangdang.ddframe.job.api.simple.SimpleJob;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+@Component
 public class RepaymentJob implements SimpleJob {
 
     @Autowired

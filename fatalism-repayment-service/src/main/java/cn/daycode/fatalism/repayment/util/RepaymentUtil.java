@@ -91,7 +91,6 @@ public class RepaymentUtil {
 
     private static Map<Integer, BigDecimal> getCapitalAmountList(BigDecimal invest, double monthRate, int month) {
         Map<Integer, BigDecimal> map = new HashMap<Integer, BigDecimal>();
-        // 每月本金
         double monthPri = getCapitalPrincipal(invest, month).doubleValue();
         monthRate = new BigDecimal(monthRate).setScale(6, BigDecimal.ROUND_DOWN).doubleValue();
         for (int i = 1; i <= month; i++) {
