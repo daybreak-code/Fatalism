@@ -11,10 +11,13 @@ import org.springframework.security.oauth2.provider.OAuth2Request;
 import org.springframework.security.oauth2.provider.token.AccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.DefaultUserAuthenticationConverter;
 import org.springframework.security.oauth2.provider.token.UserAuthenticationConverter;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 
+@Component
 public class ClientDefaultAccessTokenConverter implements AccessTokenConverter {
+
     private UserAuthenticationConverter userTokenConverter = new DefaultUserAuthenticationConverter();
 
     private boolean includeGrantType;

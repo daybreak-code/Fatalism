@@ -15,6 +15,10 @@ import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
+import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationManager;
+import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.security.web.savedrequest.RequestCache;
@@ -86,6 +90,11 @@ public class SecurityConfig implements WebSecurityConfigurer {
         //matchers.add(notXRequestedWith);
 
         return new AndRequestMatcher(matchers);
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManager() throws Exception {
+        return new OAuth2AuthenticationManager();
     }
 
 

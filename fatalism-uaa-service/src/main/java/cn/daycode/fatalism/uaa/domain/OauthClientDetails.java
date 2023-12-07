@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 public class OauthClientDetails implements Serializable {
+
     private static final long serialVersionUID = -6947822646185526939L;
 
     private LocalDateTime createTime = DateUtil.now();
