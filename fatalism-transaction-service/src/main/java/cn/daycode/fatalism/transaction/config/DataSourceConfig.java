@@ -43,7 +43,7 @@ public class DataSourceConfig {
     @Bean("MySQLSqlSessionTemplate1")
     @Primary
     public SqlSessionTemplate test1SqlSessionTemplate(
-            @Qualifier("MySQLSqlSessionFactory1") SqlSessionFactory sessionFactory) {
+            @Qualifier("mysqlSessionFactory") SqlSessionFactory sessionFactory) {
         return new SqlSessionTemplate(sessionFactory);
     }
 

@@ -17,6 +17,12 @@
   </properties>
 
   <dependencies>
+
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-loadbalancer</artifactId>
+    </dependency>
+
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-web</artifactId>
@@ -30,17 +36,17 @@
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>31.0.1-jre</version>
+      <version>31.1-jre</version>
     </dependency>
     <dependency>
       <groupId>org.apache.curator</groupId>
       <artifactId>curator-framework</artifactId>
-      <version>2.12.0</version>
+      <version>5.3.0</version>
     </dependency>
     <dependency>
       <groupId>org.apache.curator</groupId>
       <artifactId>curator-client</artifactId>
-      <version>5.2.0</version>
+      <version>5.3.0</version>
       <exclusions>
         <exclusion>
           <groupId>com.google.guava</groupId>
@@ -84,7 +90,7 @@
     <dependency>
       <groupId>com.alibaba</groupId>
       <artifactId>druid-spring-boot-starter</artifactId>
-      <version>1.2.11</version>
+      <version>1.2.16</version>
     </dependency>
     <dependency>
       <groupId>mysql</groupId>
@@ -97,10 +103,13 @@
     <dependency>
       <groupId>com.baomidou</groupId>
       <artifactId>mybatis-plus-boot-starter</artifactId>
+      <version>3.5.3.1</version>
     </dependency>
+
     <dependency>
       <groupId>com.baomidou</groupId>
       <artifactId>mybatis-plus-generator</artifactId>
+      <version>3.5.3.1</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>

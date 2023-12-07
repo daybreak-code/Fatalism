@@ -51,5 +51,5 @@ public class ProjectDTO {
 
     private String risk = "B";
 
-    private Integer tenderCount;
+    private Long tenderCount;
 }

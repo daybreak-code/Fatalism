@@ -218,7 +218,7 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         for(Project project:projects){
             ProjectDTO projectDTO=convertProjectEntityToDTO(project);
             projectDTO.setRemainingAmount(getProjectRemainingAmount(project));
-            projectDTO.setTenderCount(tenderMapper.selectCount(Wrappers.<Tender>lambdaQuery().eq(Tender::getProjectId, project.getId())));
+            //projectDTO.setTenderCount(tenderMapper.selectCount(Wrappers.<Tender>lambdaQuery().eq(Tender::getProjectId, project.getId())));
             dtos.add(projectDTO);
         }
         return dtos;
