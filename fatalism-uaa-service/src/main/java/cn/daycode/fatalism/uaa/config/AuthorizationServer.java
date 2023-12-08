@@ -41,6 +41,8 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
         return new InMemoryAuthorizationCodeServices();
     }
 
+
+
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.withClientDetails(clientDetailsService);

@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationDetailsSource;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,6 +17,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
 import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationManager;
+import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
+import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
@@ -32,6 +35,7 @@ import java.util.List;
 
 @Configuration
 public class SecurityConfig implements WebSecurityConfigurer {
+
 
     @Bean
     public IntegrationUserDetailsAuthenticationHandler integrationUserDetailsAuthenticationHandler() {
@@ -90,11 +94,6 @@ public class SecurityConfig implements WebSecurityConfigurer {
         //matchers.add(notXRequestedWith);
 
         return new AndRequestMatcher(matchers);
-    }
-
-    @Bean
-    public AuthenticationManager authenticationManager() throws Exception {
-        return new OAuth2AuthenticationManager();
     }
 
 

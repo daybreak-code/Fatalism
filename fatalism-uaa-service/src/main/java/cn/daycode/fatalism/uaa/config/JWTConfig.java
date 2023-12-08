@@ -4,9 +4,11 @@ import cn.daycode.fatalism.uaa.domain.ClientDefaultAccessTokenConverter;
 import cn.daycode.fatalism.uaa.domain.UnifiedUserAuthenticationConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.security.core.token.TokenService;
-import org.springframework.security.oauth2.provider.token.ConsumerTokenServices;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.CachingUserDetailsService;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationManager;
+import org.springframework.security.oauth2.provider.client.ClientDetailsUserDetailsService;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
@@ -33,12 +35,18 @@ public class JWTConfig {
         return converter;
     }
 
-    @Bean
-    @Primary
+
     public ResourceServerTokenServices tokenServices() {
         DefaultTokenServices services = new DefaultTokenServices();
         services.setTokenStore(tokenStore());
         return services;
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManager() throws Exception {
+        OAuth2AuthenticationManager oAuth2AuthenticationManager = new OAuth2AuthenticationManager();
+        oAuth2AuthenticationManager.setTokenServices(tokenServices());
+        return oAuth2AuthenticationManager;
     }
 
 }
