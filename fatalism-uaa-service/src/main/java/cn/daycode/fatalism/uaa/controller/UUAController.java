@@ -12,13 +12,16 @@ import org.springframework.security.oauth2.provider.token.AuthorizationServerTok
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 import java.util.Map;
 
-@Controller
+@RestController
+@RequestMapping("/uaa")
 public class UUAController {
 
     private static final Logger LOG = LoggerFactory.getLogger(UUAController.class);
@@ -30,28 +33,26 @@ public class UUAController {
     private AccessTokenConverter accessTokenConverter;
 
 
-    //@GetMapping(value = {"/login"})
-    @RequestMapping(value = {"/login"})
+    @GetMapping("/login")
     public String login(Model model) {
         LOG.info("Go to login, IP: {}", WebUtils.getIp());
         return "login";
     }
 
 
-    @RequestMapping("/confirm_access")
+    @GetMapping("/confirm_access")
     public String confirmAccess() {
         return "/oauth_approval";
     }
 
 
-    @RequestMapping("/oauth_error")
+    @GetMapping("/oauth_error")
     public String oauthError() {
         return "/oauth_error";
     }
 
 
-    @RequestMapping("/oauth/token")
-    @ResponseBody
+    @GetMapping("/oauth/token")
     public Map<String, ?> checkToken(@RequestParam("token") String value) {
         DefaultTokenServices tokenServices = (DefaultTokenServices) tokenService;
         OAuth2AccessToken token = tokenServices.readAccessToken(value);
@@ -64,5 +65,14 @@ public class UUAController {
         OAuth2Authentication authentication = tokenServices.loadAuthentication(token.getValue());
         Map<String, ?> rst = accessTokenConverter.convertAccessToken(token, authentication);
         return rst;
+    }
+
+    @RequestMapping(value = "/authorize", method = RequestMethod.GET)
+    public ModelAndView authorize(Map<String, Object> map, HttpServletRequest request, SessionStatus sessionStatus, Principal principal) {
+        // ... your code here ...
+        ModelAndView modelAndView = new ModelAndView("oauth/authorize");
+        modelAndView.addObject("clientId", "clientId");
+        modelAndView.addObject("redirectUri", "redirectUri");
+        return modelAndView;
     }
 }
