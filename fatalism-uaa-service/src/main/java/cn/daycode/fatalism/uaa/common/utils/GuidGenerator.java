@@ -5,11 +5,10 @@ import org.springframework.security.oauth2.common.util.RandomValueStringGenerato
 import java.util.UUID;
 
 public abstract class GuidGenerator {
+
     private static RandomValueStringGenerator defaultClientSecretGenerator = new RandomValueStringGenerator(32);
 
-    /**
-     * private constructor
-     */
+
     private GuidGenerator() {
     }
 
