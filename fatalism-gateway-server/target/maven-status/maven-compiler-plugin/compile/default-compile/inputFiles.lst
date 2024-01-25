@@ -1,0 +1,10 @@
+C:\CodeProjects\GitHub\Fatalism\fatalism-gateway-server\src\main\java\cn\daycode\fatalism\gateway\config\ResourceServerConfig.java
+C:\CodeProjects\GitHub\Fatalism\fatalism-gateway-server\src\main\java\cn\daycode\fatalism\gateway\config\RestOAuth2AuthExceptionEntryPoint.java
+C:\CodeProjects\GitHub\Fatalism\fatalism-gateway-server\src\main\java\cn\daycode\fatalism\gateway\util\HttpUtil.java
+C:\CodeProjects\GitHub\Fatalism\fatalism-gateway-server\src\main\java\cn\daycode\fatalism\gateway\config\ZuulConfig.java
+C:\CodeProjects\GitHub\Fatalism\fatalism-gateway-server\src\main\java\cn\daycode\fatalism\gateway\config\SecurityConfig.java
+C:\CodeProjects\GitHub\Fatalism\fatalism-gateway-server\src\main\java\cn\daycode\fatalism\gateway\config\RestAccessDeniedHandler.java
+C:\CodeProjects\GitHub\Fatalism\fatalism-gateway-server\src\main\java\cn\daycode\fatalism\gateway\config\JWTConfig.java
+C:\CodeProjects\GitHub\Fatalism\fatalism-gateway-server\src\main\java\cn\daycode\fatalism\gateway\filter\AuthFilter.java
+C:\CodeProjects\GitHub\Fatalism\fatalism-gateway-server\src\main\java\cn\daycode\fatalism\gateway\config\ClientDefaultAccessTokenConverter.java
+C:\CodeProjects\GitHub\Fatalism\fatalism-gateway-server\src\main\java\cn\daycode\fatalism\gateway\GatewayServer.java

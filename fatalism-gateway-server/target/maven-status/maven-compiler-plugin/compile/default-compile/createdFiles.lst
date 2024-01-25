@@ -1,0 +1,7 @@
+cn\daycode\fatalism\gateway\config\ZuulConfig.class
+cn\daycode\fatalism\gateway\util\HttpUtil.class
+cn\daycode\fatalism\gateway\filter\AuthFilter.class
+cn\daycode\fatalism\gateway\GatewayServer.class
+cn\daycode\fatalism\gateway\config\ResourceServerConfig.class
+cn\daycode\fatalism\gateway\config\ClientDefaultAccessTokenConverter.class
+cn\daycode\fatalism\gateway\config\JWTConfig.class
