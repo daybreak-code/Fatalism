@@ -10,6 +10,7 @@ public class TransactionApp
 {
     public static void main( String[] args )
     {
+
         SpringApplication.run(TransactionApp.class);
     }
 }
