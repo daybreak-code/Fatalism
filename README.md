@@ -33,9 +33,9 @@ We used those tech stack for our service,
 
 ### Design Doc
 
--
+- Doc for Design
 
 ## CI Job
 
--
+- Job link for CI/CD
 
