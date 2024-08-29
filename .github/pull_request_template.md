@@ -18,3 +18,11 @@
 ### :rotating_light: Error Handling
 
 9. [] Error State are properly handled
+
+## Impact
+**Please specify what this PR impacts**
+
+- [ ] :rocket: New feature
+- [ ] :bug: Bugfix
+- [ ] :sos: Breaking changes for existing features
+- [ ] :sparkles: Removal of old feature
